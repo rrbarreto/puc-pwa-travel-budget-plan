@@ -10,8 +10,6 @@ if ("serviceWorker" in navigator){
 
 }
 
-var APP_KEY = `${process.env.API_KEY}`;
-
 /*---- Configure form currency source and destination ----*/
 const currencySrc = ["USD","EUR"];
 const currencyDst = ["BRL"];
@@ -68,7 +66,7 @@ formData.addEventListener("click", async(e) => {
 
     // calculate currency 
     const valCalulated = (qtdField * valField);
-    const resp = await fetch(`https://v6.exchangerate-api.com/v6/${APP_KEY}/pair/${curSrcField}/${curDstField}/${valCalulated}`);
+    const resp = await fetch(`https://v6.exchangerate-api.com/v6/f02563e9610391938dfa68a8/pair/${curSrcField}/${curDstField}/${valCalulated}`);
     const data = await resp.json();
     const converted = parseFloat(data.conversion_result.toFixed(2));
 
@@ -175,7 +173,7 @@ function editContent(index) {
 
         // calculate currency 
         const valCalulated = (qtdField * valField);
-        const resp = await fetch(`https://v6.exchangerate-api.com/v6/${APP_KEY}/pair/${curSrcField}/${curDstField}/${valCalulated}`);
+        const resp = await fetch(`https://v6.exchangerate-api.com/v6/f02563e9610391938dfa68a8/pair/${curSrcField}/${curDstField}/${valCalulated}`);
         const data = await resp.json();
         const converted = parseFloat(data.conversion_result.toFixed(2));
 
